@@ -1,1 +1,38 @@
-<p>new-meeting works!</p>
+<form [formGroup]="meetingForm" (submit)="saveMeeting()">
+    <h1 mat-dialog-title>Create a meeting</h1>
+    <div mat-dialog-content class="create-meeting">
+        <mat-form-field appearance="outline">
+            <mat-label>Meeting Name</mat-label>
+            <input matInput placeholder="Enter meeting name" formControlName="meetingName" id="meetingName">
+            <mat-icon matSuffix>note</mat-icon>
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline">
+          <mat-label>Start time</mat-label>
+          <input matInput [ngxMatDatetimePicker]="startDatePicker" placeholder="Meeting start time" formControlName="startDate">
+          <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+          <ngx-mat-datetime-picker #startDatePicker></ngx-mat-datetime-picker>
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline">
+            <mat-label>End time</mat-label>
+            <input matInput [ngxMatDatetimePicker]="endDatePicker" placeholder="Meeting end time" formControlName="endDate">
+            <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #endDatePicker></ngx-mat-datetime-picker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Location</mat-label>
+            <input matInput placeholder="Meeting location" formControlName="locationName" id="locationName">
+            <mat-icon matSuffix>location_on</mat-icon>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="close()">Cancel</button>
+      <button mat-raised-button color="primary" [disabled]="!meetingForm.valid">Submit</button>
+    </div>
+</form>
+
+<!--<label for="email">Email</label>
+    <input formControlName="email" id="email" />
+    <control-messages [control]="meetingForm.get('email')"></control-messages> -->

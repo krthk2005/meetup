@@ -1,0 +1,35 @@
+.meeting-list{
+    .meeting-info{    
+        height: 100px;
+        margin: 15px 0px;
+        display: flex;
+        flex-wrap: wrap;
+        cursor: pointer;
+        .meeting-date-information{
+            display: flex;
+            align-items: center;
+            .meeting-week{
+                padding: 10px;
+                font-weight: bold;
+            }
+            .meeting-day{
+                padding: 10px;
+                font-size: 3.5em;
+
+            }
+            .meeting-time{
+                display: flex;
+                flex-direction: column;
+                padding-left: 10px;
+
+            }
+        }
+        .meeting-full-information{
+            display: flex;
+            align-items: center;
+            font-size: 2em;
+            padding: 15px;
+
+        }
+    }
+}

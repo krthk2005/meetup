@@ -1,0 +1,28 @@
+<div class="container meeting-list">
+    <div matRipple class="mat-elevation-z4 meeting-info" [matRippleDisabled]="rippleDisabled" *ngFor="let meeting of newMeetingService.meetingInfo; let i = index;">
+        <div class="meeting-date-information">
+            <div class="meeting-week">
+                {{meeting.startDate | date:'EEE' | uppercase}} 
+            </div>
+            <div class="meeting-day">
+                {{meeting.startDate | date:'dd'}} 
+            </div>
+            <div class="meeting-time">
+                <span>
+                    {{meeting.startDate | date:'h:mm a'}} 
+                </span>
+                <span>
+                    {{meeting.endDate | date:'h:mm a'}} 
+                </span>
+            </div>
+        </div>
+        <div class="meeting-full-information">
+            <span>
+                {{meeting.meetingName}}
+            </span>
+            <button mat-mini-fab color="warn" (mousedown)="rippleDisabled=true" (mouseup)="rippleDisabled=false" aria-label="Delete">
+                <mat-icon>delete</mat-icon>
+              </button>
+        </div>
+    </div>
+</div>
